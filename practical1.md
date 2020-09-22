@@ -4,6 +4,18 @@ title: Practical 1
 permalink: /practical1/
 ---
 
+# Objectives
+
+The learning objectives for this practical are:
+
+ * Have your computer setup to work with the Unix command-line.
+ * Create directories and navigate through the Unix filesystem.
+ * Copy and move files.
+ * Use the Unix online manual.
+ * Remove files and directories.
+ * Explore file contents.
+ * Create your own GitHub profile.
+
 # Setup and background
 
 In this practical we will use some basic commands to navigate and manipulate the Unix file system. You
@@ -85,6 +97,15 @@ $ cd practical1
 ```
 
 To check whether we have successfully changed the PWD to the new directory, use again the command `pwd`.
+We can move back to the previous directory from where we moved our default access by doing:
+
+```
+$ cd ..
+```
+
+Here the two consecutive dot characters `..` indicate the previous directory in the filesystem
+hiearchy. You can check out again with `pwd` that after the previous command you have come back
+to the directory from where you created `practical1`.
 
 # Copying and moving files
 
@@ -120,6 +141,10 @@ then the command to copy that file to the current PWD **would be**
 ```
 cp /Users/robert/Downloads/catalunya_setmanal.zip .
 ```
+
+**Important**: the dot character '.' indicates that the destination of the file is your current PWD. To
+copy the previous file into the directory `practical1` using '.' as destination, you need to make sure
+that `practical1` is your current PWD.
 
 **Tip:** when writing long paths it is useful to exploit the so-called _tab-completion mechanism_, which consists of pressing the `Tab` key (typically located above the `Caps Lock` key) once you've written a few letters of a file name in the path. If those few letters constitute a unique prefix of the filename, the rest of the filename will be written for you by the shell. If the prefix is not unique, by pressing the `Tab` key twice, the shell will show your the two or more filenames that match that prefix. Actually, the tab-completion mechanism also works for commands: if you type `cp` and press `Tab`, the shell will show you all the available commands that start with `cp`.
 
@@ -223,3 +248,30 @@ the number of lines, words and characters in a text file. When multiple files ar
 specifying their names one after each other or by using the wildcard character (e.g., `*.csv`),
 those statistics are given for each file and also their grand totals. Use the `wc` command on the
 CSV COVID19 data files.
+
+# Create your own GitHub profile 
+
+Go to [https://github.com](https://github.com) and create your own GitHub profile by entering the
+following three bits of information in the sign up form:
+
+  * Username: you can write any word as username as long as it doesn't exist already as username
+    in GitHub. If you think you may be using this account professionally in the future, you can
+    try with the first letter of your first name, followed by your family name.
+  * Email: enter your student UPF email (`xxxx.yyyy@estudiant.upf.edu`). It is important that you
+    enter your student UPF email to enable the connection of your account with GitHub Classroom
+    organisation of FCB.
+  * Password: enter a password according to the requirements shown in the form.
+
+On the next screen, answer the security question, if it appears, and press the button
+**"Join a free plan"**.
+
+On the next screen, answer the given questions as follows:
+
+  * What kind of work do you do, mainly? **Student**
+  * How much programming experience do you have? **None** (probably, but feel free to select another answer)
+  * What do you plan to use GitHub for? select **School work and student projects** at least and feel free to select other answers.
+
+Now check out your email, you should find a new one from GitHub where they ask you to verify your
+email address. Follow the given link to do this step and your browser should open on your brand new
+GitHub profile. You can now log out by clicking on the icon at the top right corner of the GitHub page
+and select `Sign out` from the pull down menu. Do not forget your GitHub username and password!!!
