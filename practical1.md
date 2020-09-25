@@ -36,7 +36,8 @@ follow the next two steps:
 
 # Creating your first directory
 
-Open a terminal window and figure out which is your username and your default path working directory (PWD) by
+Open a terminal window and figure out which is your username and your default
+current working directory (CWD) by
 typing the commands `whoami` (first) and `pwd` (second) on the
 [command prompt](https://en.wikipedia.org/wiki/Command-line_interface#Command_prompt).
 After you type each command you should press the `Enter` key to ask the shell to execute the command. Your
@@ -48,7 +49,7 @@ The command prompt may display different information to the left of the cursor a
 dollar sign. The solely purpose of the command prompt is to indicate where we can start typing commands,
 while the purpose of the cursor is to indicate that the shell is waiting for us to type commands.
 In the image above the command prompt it is displaying the name of the host computer (`messi`) and the
-the current PWD, which corresponds to our
+the current CWD, which corresponds to our
 [_home_ directory](https://en.wikipedia.org/wiki/Home_directory)
 and for this reason is abbreviated with the tilde `~`. In the image above the home directory is
 `/Users/robert`, but tipically in a Unix system the home directory would hang from a directory called
@@ -62,7 +63,7 @@ $ mkdir practical1
 
 To check whether we have successfully created a directory called `practical1` we can use the command
 `ls` and verify whether among the listed files we can find the name `practical1`. The output of `ls`
-consists of the names of every file in your current PWD. It may useful to distinguish between regular
+consists of the names of every file in your current CWD. It may useful to distinguish between regular
 files and directories, you can do that in different ways, one of them using the option `-F`:
 
 ```
@@ -90,13 +91,13 @@ understand what is said in the section `NAME`.
 
 # Changing the default path working directory 
 
-We can change our default PWD to the new directory we have created before by doing:
+We can change our default CWD to the new directory we have created before by doing:
 
 ```
 $ cd practical1
 ```
 
-To check whether we have successfully changed the PWD to the new directory, use again the command `pwd`.
+To check whether we have successfully changed the CWD to the new directory, use again the command `pwd`.
 We can move back to the previous directory from where we moved our default access by doing:
 
 ```
@@ -136,15 +137,15 @@ new directory using the command `cp`. **For instance**, if one of the files **we
 /Users/robert/Downloads/catalunya_setmanal.zip
 ```
 
-then the command to copy that file to the current PWD **would be**
+then the command to copy that file to the current CWD **would be**
 
 ```
 cp /Users/robert/Downloads/catalunya_setmanal.zip .
 ```
 
-**Important**: the dot character '.' indicates that the destination of the file is your current PWD. To
+**Important**: the dot character '.' indicates that the destination of the file is your current CWD. To
 copy the previous file into the directory `practical1` using '.' as destination, you need to make sure
-that `practical1` is your current PWD.
+that `practical1` is your current CWD.
 
 **Tip:** when writing long paths it is useful to exploit the so-called _tab-completion mechanism_, which consists of pressing the `Tab` key (typically located above the `Caps Lock` key) once you've written a few letters of a file name in the path. If those few letters constitute a unique prefix of the filename, the rest of the filename will be written for you by the shell. If the prefix is not unique, by pressing the `Tab` key twice, the shell will show your the two or more filenames that match that prefix. Actually, the tab-completion mechanism also works for commands: if you type `cp` and press `Tab`, the shell will show you all the available commands that start with `cp`.
 
@@ -160,7 +161,7 @@ is stored in the `Downloads` directory. **Tip:** In keyboards with a Spanish lay
 `AltGr+4`.
 
 Once you have copied the two files, please verify using the command `ls` that the two files are indeed
-in your current PWD. If you have been successful, you have probably typed twice the `cp` command. However,
+in your current CWD. If you have been successful, you have probably typed twice the `cp` command. However,
 because the two filenames start with the prefix `catalunya`, you could have done the job with one single
 command by using again the wildcard character `*` as follows
 
@@ -212,7 +213,7 @@ ends with `.zip`. Check out with the command `ls` that they indeed have been rem
 Unix system has no bin were removed files could go before being finally removed by emptying the bin. In
 the command-line interface of a Unix system, if you accidentally remove a file, **you cannot recover it**.
 Because of that, you should pay attention when you use the wildcar character `*`, because an unintended
-space character before or after the `*` could imply **removing all files of your PWD**.
+space character before or after the `*` could imply **removing all files of your CWD**.
 
 At this point, you have typed quite a few Unix commands and have the terminal window full of characters.
 Now and then you may want to clear the terminal window. You can do that by either typing the command
