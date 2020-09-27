@@ -251,7 +251,7 @@ specifying their names one after each other or by using the wildcard character (
 those statistics are given for each file and also their grand totals. Use the `wc` command on the
 CSV COVID19 data files.
 
-**Tip:** All these commands to explore file contents may block the shell waiting for content if you forget to specify a filename. In such as case, press the combination of keys `Ctrl+d`, which send an [end-of-file (EOF)](https://en.wikipedia.org/wiki/End-of-file) signal to the command and will immediately exit, giving you back the control of the shell.
+**Tip:** All these commands to explore file contents may block the shell waiting for content if you forget to specify a filename. In such a case, press the combination of keys `Ctrl+d`, which send an [end-of-file (EOF)](https://en.wikipedia.org/wiki/End-of-file) signal to the command and will immediately exit, giving you back the control of the shell.
 
 # Redirect terminal output to a file
 
@@ -285,6 +285,8 @@ $ cat > test.txt
 Hello world!
 ```
 Now press the EOF key combination (`Ctrl+d`) and verify that the previous content of `test.txt` has dissapeared and instead it has now only the words "Hello world!".
+
+**Tip:** You should note that running twice the terminal redirection (`>`) over the same file, overwrites completely the initial contents of the file. To avoid overwritting the content of a file, and adding instead the new content at the end, you should use `>>` instead of `>`.
 
 # Create your own GitHub profile 
 
