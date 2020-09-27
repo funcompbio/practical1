@@ -251,6 +251,8 @@ specifying their names one after each other or by using the wildcard character (
 those statistics are given for each file and also their grand totals. Use the `wc` command on the
 CSV COVID19 data files.
 
+**Tip:** All these commands to explore file contents may block the shell waiting for content if you forget to specify a filename. In such as case, press the combination of keys `Ctrl+d`, which send an [end-of-file (EOF)](https://en.wikipedia.org/wiki/End-of-file) signal to the command and will immediately exit, giving you back the control of the shell.
+
 # Redirect terminal output to a file
 
 A very useful feature of Unix is
@@ -275,6 +277,14 @@ command.
 
 Now, using this terminal output redirecting mechanism, create a file that contains the
 number of lines of the two CSV COVID19 data files.
+
+Using the `cat` command without a filename and the output redirection can also be handy to quickly create a text file with a few words. For instance, type the following:
+
+```
+$ cat > test.txt
+Hello world!
+```
+Now press the EOF key combination (`Ctrl+d`) and verify that the previous content of `test.txt` has dissapeared and instead it has now only the words "Hello world!".
 
 # Create your own GitHub profile 
 
