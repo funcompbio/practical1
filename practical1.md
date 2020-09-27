@@ -14,6 +14,7 @@ The learning objectives for this practical are:
  * Use the Unix online manual.
  * Remove files and directories.
  * Explore file contents.
+ * Redirect terminal output to a file.
  * Create your own GitHub profile.
 
 # Setup and background
@@ -232,11 +233,11 @@ files:
 The first point implies that we can inspect the contents of each of the files from the command-line
 using any of the following Unix commands
 
-  * `head <filename>`: shows the contents of the beginning of the file.
-  * `tail <filename>`: shows the contents of the end of the file.
-  * `cat <filename>`: shows the entire contents of the file.
-  * `more <filename>`: like `cat` but paginating the output. Use the `Enter` key to scroll line-by-line,
-    the `Space` key to scroll by pages and the `q` key to quit.
+  * `head filename`: shows the contents of the beginning of a file called _filename_.
+  * `tail filename`: shows the contents of the end of a file called _filename_.
+  * `cat filename`: shows the entire contents of a file called _filename_.
+  * `more filename`: like `cat` but paginating the output. Use the `Enter` key to scroll line-by-line,
+    the `Space` key to scroll by pages and the `q` key to quit. Modern Unix systems have also the command `less filename`, which works like `more` but also allows one to scroll the contents backwards using the key `b`.
 
 The second point implies that the contents are organized as a table, where each line contains a
 record of the data and each record consists of a given number of values separated by some delimiter
@@ -249,6 +250,31 @@ the number of lines, words and characters in a text file. When multiple files ar
 specifying their names one after each other or by using the wildcard character (e.g., `*.csv`),
 those statistics are given for each file and also their grand totals. Use the `wc` command on the
 CSV COVID19 data files.
+
+# Redirect terminal output to a file
+
+A very useful feature of Unix is
+[redirection](https://en.wikipedia.org/wiki/Redirection_%28computing%29). Here, we are going
+to see what it means to redirect the terminal output to a file. To redirect the terminal output
+to a file we use the operator `>` as follows:
+
+```
+$ command > file
+```
+Here command is some program that generates output to the terminal window and file is some
+file where this output is written, instead of going to the terminal. For instance, try the
+following
+
+```
+$ head catalunya_diari.csv > test.txt
+```
+Note that you cannot see anymore the output of the `head` command on the terminal window.
+However, if you use the commands `ls` and `cat test.txt`, you should be able to identify
+a new file called `test.txt` and its contents corresponding to the output of the `head`
+command.
+
+Now, using this terminal output redirecting mechanism, create a file that contains the
+number of lines of the two CSV COVID19 data files.
 
 # Create your own GitHub profile 
 
