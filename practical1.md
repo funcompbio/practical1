@@ -81,7 +81,7 @@ command `man` giving as first argument the name of the command for which you wan
 page. For instance, try to access the manual page of the command `ls` by doing:
 
 ```
-man ls
+$ man ls
 ```
 
 All manual pages have the same structure of sections `NAME`, `SYNOPSIS`, `DESCRIPTION`, etc. and
@@ -141,7 +141,7 @@ new directory using the command `cp`. **For instance**, if one of the files **we
 then the command to copy that file to the current CWD **would be**
 
 ```
-cp /Users/robert/Downloads/catalunya_setmanal.zip .
+$ cp /Users/robert/Downloads/catalunya_setmanal.zip .
 ```
 
 **Important**: the dot character '.' indicates that the destination of the file is your current CWD. To
@@ -154,7 +154,7 @@ Note that because `/Users/robert` corresponds in this example to the _home_ dire
 could use the abbreviation `~`, corresponding to the _home_ directory, to write the previous command line as
 
 ```
-cp ~/Downloads/catalunya_setmanal.zip .
+$ cp ~/Downloads/catalunya_setmanal.zip .
 ```
 
 Note that the previous command will work regardless of what is your username, as long as the sought file
@@ -182,8 +182,8 @@ The two files we have copied to our directory called `practical1` should have th
 The [filename extension](https://en.wikipedia.org/wiki/Filename_extension) `.zip` indicates that these two files contained packaged (possibly more than one file) and compressed (reduced in size) files. To unpackage and uncompress these two files we can use the command `unzip`. A good practise is to make a first call to `unzip` using the option `-l` to list the contents of each file without unpackaging and uncompressing them:
 
 ```
-unzip -l catalunya_setmanal.zip
-unzip -l catalunya_diari.zip
+$ unzip -l catalunya_setmanal.zip
+$ unzip -l catalunya_diari.zip
 ```
 
 **Tip:** when you need to repeat a previous command-line or your next command-line resembles pretty much
@@ -195,8 +195,8 @@ The previous operation allows us to anticipate what files are going to be create
 uncompressing these two `.zip` files. Let's do that now:
 
 ```
-unzip catalunya_setmanal.zip
-unzip catalunya_diari.zip
+$ unzip catalunya_setmanal.zip
+$ unzip catalunya_diari.zip
 ```
 
 Use the `ls` command to see that you have indeed obtain some new files as a result of the previous command.
@@ -206,7 +206,7 @@ Use the `ls` command to see that you have indeed obtain some new files as a resu
 There are two commands to remove files. One is `rmdir` and the other is `rm`. Check their respective manual pages and figure out what is the difference between these two commands reading only the `NAME` section. Going back to our COVID19 data files, you should have now four files, the two `.zip` files and two new `.csv` files, corresponding to the unpackaged and uncompressed COVID19 data files. Because we have now the `.csv` files, we do not need anymore the `.zip` files, remove these two `.zip` files by doing:
 
 ```
-rm *.zip
+$ rm *.zip
 ```
 
 Here we have used the wildcar character `*` to specify that we want to remove all files whose filename
