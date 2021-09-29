@@ -71,12 +71,12 @@ files and directories, you can do that in different ways, one of them using the 
 $ ls -F
 ```
 
-You should see a trailing slash character '/' right after the name of each file that is a
-directory, i.e., you should find for instance 'practical1/'.
+You should see a trailing slash character `/` right after the name of each file that is a
+directory, i.e., you should find for instance `practical1/`.
 
 # Using the online manual
 
-The Unix system an online manual pages for each of its commands that can be accessed through the
+The Unix system has online manual pages for each of its commands, which can be accessed through the
 command `man` giving as first argument the name of the command for which you want to read its manual
 page. For instance, try to access the manual page of the command `ls` by doing:
 
@@ -86,9 +86,22 @@ $ man ls
 
 All manual pages have the same structure of sections `NAME`, `SYNOPSIS`, `DESCRIPTION`, etc. and
 you can browse through it by using the `Enter` key to scroll one line at a time, the `Space` key
-to scroll by page, the `b` key to scroll one page backwards and the `q` key to quit the manual. Checkout
-the meaning of the option `F` in the manual of `ls` and the manual page for `mkdir`. Make sure you
-understand what is said in the section `NAME`.
+to scroll by page, the `b` key to scroll one page backwards and the `q` key to quit the manual.
+
+Similarly, you can obtain summary of the contents of the manual page by giving the option
+`--help`:
+
+```
+$ ls --help
+```
+
+In fact, if you are on Windows using the Unix shell emulator _Git Bash_, you will not be able
+to use the `man` command and only the latter option will be availble.
+
+Using the manual page of the command `ls`, or the summary of its options, checkout
+the meaning of the option `F`, and also try to understand how the `mkdir` command
+is described. Make sure you understand what is said in the section `NAME` of the manual
+page, or at the beginning of the output of option `--help`.
 
 # Changing the default path working directory 
 
