@@ -96,7 +96,7 @@ $ ls --help
 ```
 
 In fact, if you are on Windows using the Unix shell emulator _Git Bash_, you will not be able
-to use the `man` command and only the latter option will be availble.
+to use the `man` command and only the latter option will be available.
 
 Using the manual page of the command `ls`, or the summary of its options, checkout
 the meaning of the option `F`, and also try to understand how the `mkdir` command
