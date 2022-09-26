@@ -30,10 +30,10 @@ follow the next two steps:
 1. Go to the Catalan Health Departament COVID data portal at [https://dadescovid.cat](https://dadescovid.cat)
    and switch the language to "ENGLISH" using the pull-down menu on the top-right corner of the page.
 2. Follow the downloads link and on the next page click and download the two files corresponding to the
-   "7 DAY AGGREGATION" and the "DAILY DATA" for "CATALUNYA". Make sure you know exactly where in your
-   filesystem these two files have been downloaded. **Tip:** some browsers automatically download files into
-   a folder called "Downloads" or under a name corresponding to the translation of "Downloads" to the default
-   language of your operating system.
+   "7 DAY AGGREGATION" and the "DAILY DATA" for "CATALUNYA", column "POBLACIO RESIDENCIES/GENERAL". Make
+   sure you know exactly where in your filesystem these two files have been downloaded. **Tip:** some
+   browsers automatically download files into a folder called "Downloads" or under a name corresponding to
+   the translation of "Downloads" to the default language of your operating system.
 
 # Creating your first directory
 
@@ -204,15 +204,17 @@ a previous one, you can use the up and down arrows to go through the history of 
 you have typed before to either repeat it by pressing enter or to modify it. In the previous case, you could
 have recover the previous command-line and replace the string `setmanal` by `diari`.
 
-The previous operation allows us to anticipate what files are going to be created by unpackaging and
-uncompressing these two `.zip` files. Let's do that now:
+The previous operation allows us to anticipate what files are going to be
+created by unpackaging and uncompressing these two `.zip` files. Let's do that
+now:
 
 ```
 $ unzip catalunya_setmanal.zip
 $ unzip catalunya_diari.zip
 ```
 
-Use the `ls` command to see that you have indeed obtain some new files as a result of the previous command.
+Use the `ls` command to see that you have indeed obtain some new files as a
+result of the previous command.
 
 # Removing files
 
