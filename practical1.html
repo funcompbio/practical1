@@ -1,7 +1,7 @@
 <h1 id="objectives">Objectives</h1>
 <p>The learning objectives for this practical are:</p>
 <ul>
-<li>Have your computer setup to work with the Unix command-line.</li>
+<li>Have your computer set up to work with the Unix command-line.</li>
 <li>Download epidemiological data from the Catalan SIVIC network.</li>
 <li>Create directories and navigate through the Unix filesystem.</li>
 <li>Use the Unix online manual.</li>
@@ -66,15 +66,15 @@ names:</p>
 <p>Note that these two filenames end with <code>.csv</code>. A suffix
 starting with a dot (<code>.</code>) at the end of a filename is called
 its <a href="https://en.wikipedia.org/wiki/Filename_extension">filename
-extension</a> and, in general, it give us a hint on the type of contents
-that the file stores. For instance, a file with extension
+extension</a> and, in general, it gives us a hint on the type of
+contents that the file stores. For instance, a file with extension
 <code>.jpg</code> stores an image in <a
 href="https://en.wikipedia.org/wiki/JPEG">JPEG</a> format, while a file
 with extension <code>.mp4</code> stores a video in <a
 href="https://en.wikipedia.org/wiki/MP4_file_format">MP4</a> format. In
 our case, the <code>.csv</code> extension indicates that the downloaded
 files have contents in the so-called <a
-href="https://en.wikipedia.org/wiki/Comma-separated_values"><em>CSV</em></a>
+href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a>
 format.</p>
 <p>Think about why the filenames of the CSV files we have downloaded
 have so many underscore characters (<code>_</code>).
@@ -185,7 +185,9 @@ your current brand new directory using the command <code>cp</code>.
 located at</p>
 <pre><code>/Users/robert/Downloads</code></pre>
 <p>then, the command to copy one of these two files to the current CWD
-<strong>would be</strong></p>
+<strong>would be</strong> (due to the length of the filename, you’ll
+probably have to scroll the code chunk to the right to see the entire
+command)</p>
 <pre><code>$ cp /Users/robert/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades.csv .</code></pre>
 <p><strong>Important</strong>: the dot character ‘.’ in the second
 argument of the <code>cp</code> command, indicates that the destination
@@ -291,10 +293,9 @@ This gives us two important pieces of information about those two
 files:</p>
 <ol type="1">
 <li>The two files are <a
-href="https://en.wikipedia.org/wiki/Text_file"><em>text
-files</em></a>.</li>
+href="https://en.wikipedia.org/wiki/Text_file">text files</a>.</li>
 <li>The contents of those two files is in <a
-href="https://en.wikipedia.org/wiki/Comma-separated_values"><em>CSV</em></a>
+href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a>
 format.</li>
 </ol>
 <p>The first point implies that we can inspect the contents of each of
