@@ -8,7 +8,7 @@ permalink: /practical1/
 
 The learning objectives for this practical are:
 
- * Have your computer setup to work with the Unix command-line.
+ * Have your computer set up to work with the Unix command-line.
  * Download epidemiological data from the Catalan SIVIC network.
  * Create directories and navigate through the Unix filesystem.
  * Use the Unix online manual.
@@ -70,13 +70,13 @@ The two files that you have downloaded should have the following names:
 Note that these two filenames end with `.csv`. A suffix starting with a dot
 (`.`) at the end of a filename is called its
 [filename extension](https://en.wikipedia.org/wiki/Filename_extension) and, in
-general, it give us a hint on the type of contents that the file stores. For
+general, it gives us a hint on the type of contents that the file stores. For
 instance, a file with extension `.jpg` stores an image in
 [JPEG](https://en.wikipedia.org/wiki/JPEG) format, while a file with extension
 `.mp4` stores a video in
 [MP4](https://en.wikipedia.org/wiki/MP4_file_format) format. In our case, the
 `.csv` extension indicates that the downloaded files have contents in the
-so-called [_CSV_](https://en.wikipedia.org/wiki/Comma-separated_values) format.
+so-called [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) format.
 
 Think about why the filenames of the CSV files we have downloaded have so many
 underscore characters (`_`). **Tip**: checkout the concluding remarks of the
@@ -217,6 +217,8 @@ CSV files to your current brand new directory using the command `cp`.
 ```
 
 then, the command to copy one of these two files to the current CWD **would be**
+(due to the length of the filename, you'll probably have to scroll the code
+chunk to the right to see the entire command)
 
 ```
 $ cp /Users/robert/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades.csv .
@@ -338,8 +340,8 @@ The two SIVIC data files that we have successfully downloaded, copied into a
 folder and renamed have filename extension `.csv`. This gives us two important
 pieces of information about those two files:
 
-  1. The two files are [_text files_](https://en.wikipedia.org/wiki/Text_file).
-  2. The contents of those two files is in [_CSV_](https://en.wikipedia.org/wiki/Comma-separated_values)
+  1. The two files are [text files](https://en.wikipedia.org/wiki/Text_file).
+  2. The contents of those two files is in [CSV](https://en.wikipedia.org/wiki/Comma-separated_values)
      format.
 
 The first point implies that we can inspect the contents of each of the files
