@@ -47,25 +47,27 @@ next steps to successfully download them:
    link
    "_Vigilància microbiològica sentinella a Atenció Primària: mostres analitzades_"
    ("Primary care microbiological sentinel surveillance: analysed samples")
-4. In the next page, click on the pull-down menu "_Exporta_".
-5. In the pulled menu, click on the button labeled "CSV". At this point,
-   depending on your browser configuration, either a pop-up window appeared that
-   allows you to select where do you want to store this file, or the file has
-   been automatically downloaded to a folder, typically called "Downloads", or
-   "_Baixades_" in Catalan. If you are in this latter case and unsure where the
-   file has been downloaded, click on the downloads button of your browser and
-   you should be able to locate the file in the filesystem. **Please take note
-   of the location and the name of the downloaded file, i.e., its path in the
-   filesystem**.
+4. In the next page, click on the top-right button "_Exportar_", and a new
+   pop-up window should appear.
+5. In the pop-up window, click on the button labeled "_Descargar_". At this
+   point, depending on your browser configuration, either another pop-up
+   window appeared that allows you to select where do you want to store this
+   file, or the file has been automatically downloaded to a folder, typically
+   called "Downloads", or "_Baixades_" in Catalan. If you are in this latter
+   case and unsure where the file has been downloaded, click on the downloads
+   button of your browser and you should be able to locate the file in the
+   filesystem. **Please take note of the location and the name of the downloaded
+   file, i.e., its path in the filesystem**.
 6. Press the going back button in your browser and repeat steps 3 to 5, but
    this time following the link called
    "_Vigilància microbiològica sentinella a Atenció Primària: virus detectats_"
    ("Primary care microbiological sentinel surveillance: detected viruses").
 
-The two files that you have downloaded should have the following names:
+The two files that you have downloaded should have the following names (where
+`YYYYMMDD` refers to the year, month and day in which the data set was updated:
 
-* `Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades.csv`
-* `Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__virus_detectats.csv`
+* `Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades_YYYYMMDD.csv`
+* `Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__virus_detectats_YYYYMMDD.csv`
 
 Note that these two filenames end with `.csv`. A suffix starting with a dot
 (`.`) at the end of a filename is called its
@@ -221,8 +223,10 @@ then, the command to copy one of these two files to the current CWD **would be**
 chunk to the right to see the entire command)
 
 ```
-$ cp /Users/robert/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades.csv .
+$ cp /Users/robert/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades_YYYYMMDD.csv .
 ```
+where you should replace the characters `YYYYMMDD` by the year, month and day
+specified in the filename of the downloaded file.
 
 **Important**: the dot character '.' in the second argument of the `cp` command,
 indicates that the destination of the file is your current CWD. To copy the CSV
@@ -245,8 +249,10 @@ directory of the user, we could use the abbreviation `~`, corresponding to the
 _home_ directory, to write the previous command line as
 
 ```
-$ cp ~/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades.csv .
+$ cp ~/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades_YYYYMMDD.csv .
 ```
+where you should replace the characters `YYYYMMDD` by the year, month and day
+specified in the filename of the downloaded file.
 
 Note that the previous command will work regardless of what is your username,
 as long as the sought file is stored in the `Downloads` directory. **Tip:** In
@@ -287,10 +293,12 @@ text, we can rename the first of them to `mostres_analitzades.csv` as follows
 (assuming the file is located in your CWD)
 
 ```
-$ mv Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades.csv mostres_analitzades.csv
+$ mv Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades_YYYYMMDD.csv mostres_analitzades.csv
 ```
+where you should replace the characters `YYYYMMDD` by the year, month and day
+specified in the filename of the downloaded file.
 
-Please rename the second one to `virus_detectats.csv`.
+Now rename the second file you downloaded to `virus_detectats.csv`.
 
 # Removing files
 
@@ -306,8 +314,10 @@ it was downloaded in `/Users/robert/Downloads`, we should type the following
 command
 
 ```
-$ rm ~/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades.csv
+$ rm ~/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades_YYYYMMDD.csv
 ```
+where you should replace the characters `YYYYMMDD` by the year, month and day
+specified in the filename of the downloaded file.
 
 Now remove the second file from the downloads folder and check out with the
 command `ls` that they indeed have been removed. We could have also done this

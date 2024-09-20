@@ -12,402 +12,124 @@
 <li>Create your own GitHub profile.</li>
 </ul>
 <h1 id="setup-and-background">Setup and background</h1>
-<p>In this practical we will use some basic commands to navigate and
-manipulate the Unix file system. You need to have access to a Unix <a
-href="https://en.wikipedia.org/wiki/Command-line_interface">command-line
-interface (CLI)</a>. If you are doing this practical in your own
-computer, please check the <a href="/setup/">setup</a> webpage to make
-sure that you have access to some flavor of a Unix operating system and
-its CLI.</p>
-<p>To practise working with files from the Unix CLI we will download
-epidemiological data from the SIVIC network, the infection surveillance
-system of Catalonia (<em>Sistema d’Informació per a la Vigilància
-d’Infeccions a Catalunya -SIVIC</em>). The SIVIC network portal
-integrates data from primary care centers (<em>Centres d’Atenció
-Primaria -CAPs</em>), clinical laboratories and hospitals throughout the
-entire Catalonia; see the <a
-href="https://sivic.salut.gencat.cat/documentacio">SIVIC help page</a>
-and <a href="Infografia_SIVIC_V4-CAT.pdf">this infographic</a> (both in
-Catalan) for additional information.</p>
-<p>We will download two specific datasets from the SIVIC portal. Please
-follow the next steps to successfully download them:</p>
+<p>In this practical we will use some basic commands to navigate and manipulate the Unix file system. You need to have access to a Unix <a href="https://en.wikipedia.org/wiki/Command-line_interface">command-line interface (CLI)</a>. If you are doing this practical in your own computer, please check the <a href="/setup/">setup</a> webpage to make sure that you have access to some flavor of a Unix operating system and its CLI.</p>
+<p>To practise working with files from the Unix CLI we will download epidemiological data from the SIVIC network, the infection surveillance system of Catalonia (<em>Sistema d’Informació per a la Vigilància d’Infeccions a Catalunya -SIVIC</em>). The SIVIC network portal integrates data from primary care centers (<em>Centres d’Atenció Primaria -CAPs</em>), clinical laboratories and hospitals throughout the entire Catalonia; see the <a href="https://sivic.salut.gencat.cat/documentacio">SIVIC help page</a> and <a href="Infografia_SIVIC_V4-CAT.pdf">this infographic</a> (both in Catalan) for additional information.</p>
+<p>We will download two specific datasets from the SIVIC portal. Please follow the next steps to successfully download them:</p>
 <ol type="1">
-<li>Go to the SIVIC portal at <a
-href="https://sivic.salut.gencat.cat">https://sivic.salut.gencat.cat</a>.</li>
-<li>Click on the link located at the top-right of the page called
-“<em>Dades obertes</em>” (“open data”).</li>
-<li>In the next page, under the section title “<em>Dades obertes</em>”,
-click on the link “<em>Vigilància microbiològica sentinella a Atenció
-Primària: mostres analitzades</em>” (“Primary care microbiological
-sentinel surveillance: analysed samples”)</li>
-<li>In the next page, click on the pull-down menu
-“<em>Exporta</em>”.</li>
-<li>In the pulled menu, click on the button labeled “CSV”. At this
-point, depending on your browser configuration, either a pop-up window
-appeared that allows you to select where do you want to store this file,
-or the file has been automatically downloaded to a folder, typically
-called “Downloads”, or “<em>Baixades</em>” in Catalan. If you are in
-this latter case and unsure where the file has been downloaded, click on
-the downloads button of your browser and you should be able to locate
-the file in the filesystem. <strong>Please take note of the location and
-the name of the downloaded file, i.e., its path in the
-filesystem</strong>.</li>
-<li>Press the going back button in your browser and repeat steps 3 to 5,
-but this time following the link called “<em>Vigilància microbiològica
-sentinella a Atenció Primària: virus detectats</em>” (“Primary care
-microbiological sentinel surveillance: detected viruses”).</li>
+<li>Go to the SIVIC portal at <a href="https://sivic.salut.gencat.cat">https://sivic.salut.gencat.cat</a>.</li>
+<li>Click on the link located at the top-right of the page called “<em>Dades obertes</em>” (“open data”).</li>
+<li>In the next page, under the section title “<em>Dades obertes</em>”, click on the link “<em>Vigilància microbiològica sentinella a Atenció Primària: mostres analitzades</em>” (“Primary care microbiological sentinel surveillance: analysed samples”)</li>
+<li>In the next page, click on the top-right button “<em>Exportar</em>”, and a new pop-up window should appear.</li>
+<li>In the pop-up window, click on the button labeled “<em>Descargar</em>”. At this point, depending on your browser configuration, either another pop-up window appeared that allows you to select where do you want to store this file, or the file has been automatically downloaded to a folder, typically called “Downloads”, or “<em>Baixades</em>” in Catalan. If you are in this latter case and unsure where the file has been downloaded, click on the downloads button of your browser and you should be able to locate the file in the filesystem. <strong>Please take note of the location and the name of the downloaded file, i.e., its path in the filesystem</strong>.</li>
+<li>Press the going back button in your browser and repeat steps 3 to 5, but this time following the link called “<em>Vigilància microbiològica sentinella a Atenció Primària: virus detectats</em>” (“Primary care microbiological sentinel surveillance: detected viruses”).</li>
 </ol>
-<p>The two files that you have downloaded should have the following
-names:</p>
+<p>The two files that you have downloaded should have the following names (where <code>YYYYMMDD</code> refers to the year, month and day in which the data set was updated:</p>
 <ul>
-<li><code>Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades.csv</code></li>
-<li><code>Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__virus_detectats.csv</code></li>
+<li><code>Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades_YYYYMMDD.csv</code></li>
+<li><code>Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__virus_detectats_YYYYMMDD.csv</code></li>
 </ul>
-<p>Note that these two filenames end with <code>.csv</code>. A suffix
-starting with a dot (<code>.</code>) at the end of a filename is called
-its <a href="https://en.wikipedia.org/wiki/Filename_extension">filename
-extension</a> and, in general, it gives us a hint on the type of
-contents that the file stores. For instance, a file with extension
-<code>.jpg</code> stores an image in <a
-href="https://en.wikipedia.org/wiki/JPEG">JPEG</a> format, while a file
-with extension <code>.mp4</code> stores a video in <a
-href="https://en.wikipedia.org/wiki/MP4_file_format">MP4</a> format. In
-our case, the <code>.csv</code> extension indicates that the downloaded
-files have contents in the so-called <a
-href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a>
-format.</p>
-<p>Think about why the filenames of the CSV files we have downloaded
-have so many underscore characters (<code>_</code>).
-<strong>Tip</strong>: checkout the concluding remarks of the lecture on
-<a href="https://funcompbio.github.io/lecture2">Unix and the command
-line</a>. Could you replace some of the underscore characters by
-something else?</p>
-<h1 id="creating-your-first-directory">Creating your first
-directory</h1>
-<p>Open a terminal window and figure out which is your username and your
-default current working directory (CWD) by typing the commands
-<code>whoami</code> (first) and <code>pwd</code> (second) on the <a
-href="https://en.wikipedia.org/wiki/Command-line_interface#Command_prompt">command
-prompt</a>. After you type each command you should press the
-<code>Enter</code> key to ask the shell to execute the command. Your
-interaction with the shell in the terminal window should look similar to
-the following image.</p>
+<p>Note that these two filenames end with <code>.csv</code>. A suffix starting with a dot (<code>.</code>) at the end of a filename is called its <a href="https://en.wikipedia.org/wiki/Filename_extension">filename extension</a> and, in general, it gives us a hint on the type of contents that the file stores. For instance, a file with extension <code>.jpg</code> stores an image in <a href="https://en.wikipedia.org/wiki/JPEG">JPEG</a> format, while a file with extension <code>.mp4</code> stores a video in <a href="https://en.wikipedia.org/wiki/MP4_file_format">MP4</a> format. In our case, the <code>.csv</code> extension indicates that the downloaded files have contents in the so-called <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> format.</p>
+<p>Think about why the filenames of the CSV files we have downloaded have so many underscore characters (<code>_</code>). <strong>Tip</strong>: checkout the concluding remarks of the lecture on <a href="https://funcompbio.github.io/lecture2">Unix and the command line</a>. Could you replace some of the underscore characters by something else?</p>
+<h1 id="creating-your-first-directory">Creating your first directory</h1>
+<p>Open a terminal window and figure out which is your username and your default current working directory (CWD) by typing the commands <code>whoami</code> (first) and <code>pwd</code> (second) on the <a href="https://en.wikipedia.org/wiki/Command-line_interface#Command_prompt">command prompt</a>. After you type each command you should press the <code>Enter</code> key to ask the shell to execute the command. Your interaction with the shell in the terminal window should look similar to the following image.</p>
 <p><img src="./terminaldefault.png" /></p>
-<p>The command prompt may display different information to the left of
-the cursor and usually ends with the dollar sign. The solely purpose of
-the command prompt is to indicate where we can start typing commands,
-while the purpose of the cursor is to indicate that the shell is waiting
-for us to type commands. In the image above the command prompt it is
-displaying the name of the host computer (<code>messi</code>) and the
-the current CWD, which in this case corresponds to the <a
-href="https://en.wikipedia.org/wiki/Home_directory"><em>home</em>
-directory</a> and for this reason is abbreviated with the tilde
-<code>~</code>. In the image above the home directory is
-<code>/Users/robert</code>, but tipically in a Unix system the home
-directory would hang from a directory called <code>/home</code>.</p>
-<p>Now, give the command to create a directory called
-<code>practical1</code>:</p>
+<p>The command prompt may display different information to the left of the cursor and usually ends with the dollar sign. The solely purpose of the command prompt is to indicate where we can start typing commands, while the purpose of the cursor is to indicate that the shell is waiting for us to type commands. In the image above the command prompt it is displaying the name of the host computer (<code>messi</code>) and the the current CWD, which in this case corresponds to the <a href="https://en.wikipedia.org/wiki/Home_directory"><em>home</em> directory</a> and for this reason is abbreviated with the tilde <code>~</code>. In the image above the home directory is <code>/Users/robert</code>, but tipically in a Unix system the home directory would hang from a directory called <code>/home</code>.</p>
+<p>Now, give the command to create a directory called <code>practical1</code>:</p>
 <pre><code>$ mkdir practical1</code></pre>
-<p>To check whether we have successfully created a directory called
-<code>practical1</code> we can use the command <code>ls</code> and
-verify whether among the listed files we can find the name
-<code>practical1</code>. The output of <code>ls</code> consists of the
-names of every file in your current CWD. It may useful to distinguish
-between regular files and directories, you can do that in different
-ways, one of them using the option <code>-F</code>:</p>
+<p>To check whether we have successfully created a directory called <code>practical1</code> we can use the command <code>ls</code> and verify whether among the listed files we can find the name <code>practical1</code>. The output of <code>ls</code> consists of the names of every file in your current CWD. It may useful to distinguish between regular files and directories, you can do that in different ways, one of them using the option <code>-F</code>:</p>
 <pre><code>$ ls -F</code></pre>
-<p>You should see a trailing slash character <code>/</code> right after
-the name of each file that is a directory, i.e., you should find for
-instance <code>practical1/</code>.</p>
+<p>You should see a trailing slash character <code>/</code> right after the name of each file that is a directory, i.e., you should find for instance <code>practical1/</code>.</p>
 <h1 id="using-the-online-manual">Using the online manual</h1>
-<p>The Unix system has online manual pages for each of its commands,
-which can be accessed through the command <code>man</code> giving as
-first argument the name of the command for which you want to read its
-manual page. For instance, try to access the manual page of the command
-<code>ls</code> by doing:</p>
+<p>The Unix system has online manual pages for each of its commands, which can be accessed through the command <code>man</code> giving as first argument the name of the command for which you want to read its manual page. For instance, try to access the manual page of the command <code>ls</code> by doing:</p>
 <pre><code>$ man ls</code></pre>
-<p>All manual pages have the same structure of sections
-<code>NAME</code>, <code>SYNOPSIS</code>, <code>DESCRIPTION</code>, etc.
-and you can browse through it by using the <code>Enter</code> key to
-scroll one line at a time, the <code>Space</code> key to scroll by page,
-the <code>b</code> key to scroll one page backwards and the
-<code>q</code> key to quit the manual.</p>
-<p>Similarly, you can obtain summary of the contents of the manual page
-by giving the option <code>--help</code>:</p>
+<p>All manual pages have the same structure of sections <code>NAME</code>, <code>SYNOPSIS</code>, <code>DESCRIPTION</code>, etc. and you can browse through it by using the <code>Enter</code> key to scroll one line at a time, the <code>Space</code> key to scroll by page, the <code>b</code> key to scroll one page backwards and the <code>q</code> key to quit the manual.</p>
+<p>Similarly, you can obtain summary of the contents of the manual page by giving the option <code>--help</code>:</p>
 <pre><code>$ ls --help</code></pre>
-<p>In fact, if you are on Windows using the Unix shell emulator <em>Git
-Bash</em>, you will probably not be able to use the <code>man</code>
-command and only the latter option will be available.</p>
-<p>Using the manual page of the command <code>ls</code>, or the summary
-of its options, checkout the meaning of the option <code>F</code>, and
-also try to understand how the <code>mkdir</code> command is described.
-Make sure you understand what is said in the section <code>NAME</code>
-of the manual page, or at the beginning of the output of option
-<code>--help</code>.</p>
-<h1 id="changing-the-default-path-working-directory">Changing the
-default path working directory</h1>
-<p>We can change our default CWD to the new directory we have created
-before by doing:</p>
+<p>In fact, if you are on Windows using the Unix shell emulator <em>Git Bash</em>, you will probably not be able to use the <code>man</code> command and only the latter option will be available.</p>
+<p>Using the manual page of the command <code>ls</code>, or the summary of its options, checkout the meaning of the option <code>F</code>, and also try to understand how the <code>mkdir</code> command is described. Make sure you understand what is said in the section <code>NAME</code> of the manual page, or at the beginning of the output of option <code>--help</code>.</p>
+<h1 id="changing-the-default-path-working-directory">Changing the default path working directory</h1>
+<p>We can change our default CWD to the new directory we have created before by doing:</p>
 <pre><code>$ cd practical1</code></pre>
-<p>To check whether we have successfully changed the CWD to the new
-directory, use again the command <code>pwd</code>. We can move back to
-the previous directory from where we moved our default access by
-doing:</p>
+<p>To check whether we have successfully changed the CWD to the new directory, use again the command <code>pwd</code>. We can move back to the previous directory from where we moved our default access by doing:</p>
 <pre><code>$ cd ..</code></pre>
-<p>Here the two consecutive dot characters <code>..</code> indicate the
-previous directory in the filesystem hiearchy. You can check out again
-with <code>pwd</code> that after the previous command you have come back
-to the directory from where you created <code>practical1</code>.</p>
+<p>Here the two consecutive dot characters <code>..</code> indicate the previous directory in the filesystem hiearchy. You can check out again with <code>pwd</code> that after the previous command you have come back to the directory from where you created <code>practical1</code>.</p>
 <h1 id="copying-files">Copying files</h1>
-<p>Locate the path where you have downloaded the two SIVIC data files
-and use the <code>ls</code> command to verify that they are indeed
-stored on that directory. If you have downloaded the two files in a
-directory called <strong>for instance</strong> <code>Downloads</code>
-located right below a home directory called <strong>for
-instance</strong> <code>/Users/robert</code>, you can use the
-<code>ls</code> command as follows to check out the presence of those
-files in that directory</p>
+<p>Locate the path where you have downloaded the two SIVIC data files and use the <code>ls</code> command to verify that they are indeed stored on that directory. If you have downloaded the two files in a directory called <strong>for instance</strong> <code>Downloads</code> located right below a home directory called <strong>for instance</strong> <code>/Users/robert</code>, you can use the <code>ls</code> command as follows to check out the presence of those files in that directory</p>
 <pre><code>$ ls /Users/robert/Downloads</code></pre>
-<p>It may happen that you have lots of other files on that directory and
-becomes difficult to distinguish whether your files of interest are
-really there. In this case, because the two filenames have extension
-<code>.csv</code>, you can use the so-called <a
-href="https://en.wikipedia.org/wiki/Wildcard_character"><em>wildcard</em>
-character</a> <code>*</code> to restrict the file listing operation to
-those files having such an extension, by typing on the command-line:</p>
+<p>It may happen that you have lots of other files on that directory and becomes difficult to distinguish whether your files of interest are really there. In this case, because the two filenames have extension <code>.csv</code>, you can use the so-called <a href="https://en.wikipedia.org/wiki/Wildcard_character"><em>wildcard</em> character</a> <code>*</code> to restrict the file listing operation to those files having such an extension, by typing on the command-line:</p>
 <pre><code>$ ls /Users/robert/Downloads/*.csv</code></pre>
-<p>This command should show you only those files whose filenames end
-with <code>.csv</code>, which should be the two you have downloaded in
-this practical, and any other previous file with extention
-<code>.csv</code> you had in that folder. Now, copy these CSV files to
-your current brand new directory using the command <code>cp</code>.
-<strong>For instance</strong>, if the files <strong>were</strong>
-located at</p>
+<p>This command should show you only those files whose filenames end with <code>.csv</code>, which should be the two you have downloaded in this practical, and any other previous file with extention <code>.csv</code> you had in that folder. Now, copy these CSV files to your current brand new directory using the command <code>cp</code>. <strong>For instance</strong>, if the files <strong>were</strong> located at</p>
 <pre><code>/Users/robert/Downloads</code></pre>
-<p>then, the command to copy one of these two files to the current CWD
-<strong>would be</strong> (due to the length of the filename, you’ll
-probably have to scroll the code chunk to the right to see the entire
-command)</p>
-<pre><code>$ cp /Users/robert/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades.csv .</code></pre>
-<p><strong>Important</strong>: the dot character ‘.’ in the second
-argument of the <code>cp</code> command, indicates that the destination
-of the file is your current CWD. To copy the CSV files into the
-directory <code>practical1</code> using ‘.’ as destination, <strong>you
-need to make sure that <code>practical1</code> is your current CWD
-before writing the command to copy the files</strong>.</p>
-<p><strong>Tip:</strong> when writing long paths it is useful to exploit
-the so-called <em>tab-completion mechanism</em>, which consists of
-pressing the <code>Tab</code> key (typically located above the
-<code>Caps Lock</code> key) once you’ve written a few letters of a file
-name in the path. If those few letters constitute a unique prefix of the
-filename, the rest of the filename will be written for you by the shell.
-If the prefix is not unique, by pressing the <code>Tab</code> key twice,
-the shell will show your the two or more filenames that match that
-prefix. Actually, the tab-completion mechanism also works for commands:
-if you type <code>cp</code> and press <code>Tab</code>, the shell will
-show you all the available commands that start with <code>cp</code>.</p>
-<p>Note that because <code>/Users/robert</code> corresponds in this
-example to the <em>home</em> directory of the user, we could use the
-abbreviation <code>~</code>, corresponding to the <em>home</em>
-directory, to write the previous command line as</p>
-<pre><code>$ cp ~/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades.csv .</code></pre>
-<p>Note that the previous command will work regardless of what is your
-username, as long as the sought file is stored in the
-<code>Downloads</code> directory. <strong>Tip:</strong> In keyboards
-with a Spanish layout, the tilde <code>~</code> character can be written
-by pressing the keys <code>AltGr+4</code> in Windows and Ubuntu, or
-<code>Alt+n+space</code> in MacOS.</p>
-<p>Now copy the second file. <strong>Tip:</strong> when you need to
-repeat a previous command-line or your next command-line resembles
-pretty much a previous one, you can use the up and down arrows to go
-through the history of all the command-lines that you have typed before
-to either repeat it by pressing enter or to modify it. In the previous
-case, you can recover the previous command-line and replace the string
-<code>mostres_analitzades</code> by <code>virus_detectats</code>.</p>
-<p>Please verify using the command <code>ls</code> that the two files
-are indeed in your current CWD. If you have been successful, you have
-probably typed twice the <code>cp</code> command. However, because the
-two filenames extension <code>*.csv</code>, you could have done the job
-with one single command by using again the wildcard character
-<code>*</code> as follows</p>
+<p>then, the command to copy one of these two files to the current CWD <strong>would be</strong> (due to the length of the filename, you’ll probably have to scroll the code chunk to the right to see the entire command)</p>
+<pre><code>$ cp /Users/robert/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades_YYYYMMDD.csv .</code></pre>
+<p>where you should replace the characters <code>YYYYMMDD</code> by the year, month and day specified in the filename of the downloaded file.</p>
+<p><strong>Important</strong>: the dot character ‘.’ in the second argument of the <code>cp</code> command, indicates that the destination of the file is your current CWD. To copy the CSV files into the directory <code>practical1</code> using ‘.’ as destination, <strong>you need to make sure that <code>practical1</code> is your current CWD before writing the command to copy the files</strong>.</p>
+<p><strong>Tip:</strong> when writing long paths it is useful to exploit the so-called <em>tab-completion mechanism</em>, which consists of pressing the <code>Tab</code> key (typically located above the <code>Caps Lock</code> key) once you’ve written a few letters of a file name in the path. If those few letters constitute a unique prefix of the filename, the rest of the filename will be written for you by the shell. If the prefix is not unique, by pressing the <code>Tab</code> key twice, the shell will show your the two or more filenames that match that prefix. Actually, the tab-completion mechanism also works for commands: if you type <code>cp</code> and press <code>Tab</code>, the shell will show you all the available commands that start with <code>cp</code>.</p>
+<p>Note that because <code>/Users/robert</code> corresponds in this example to the <em>home</em> directory of the user, we could use the abbreviation <code>~</code>, corresponding to the <em>home</em> directory, to write the previous command line as</p>
+<pre><code>$ cp ~/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades_YYYYMMDD.csv .</code></pre>
+<p>where you should replace the characters <code>YYYYMMDD</code> by the year, month and day specified in the filename of the downloaded file.</p>
+<p>Note that the previous command will work regardless of what is your username, as long as the sought file is stored in the <code>Downloads</code> directory. <strong>Tip:</strong> In keyboards with a Spanish layout, the tilde <code>~</code> character can be written by pressing the keys <code>AltGr+4</code> in Windows and Ubuntu, or <code>Alt+n+space</code> in MacOS.</p>
+<p>Now copy the second file. <strong>Tip:</strong> when you need to repeat a previous command-line or your next command-line resembles pretty much a previous one, you can use the up and down arrows to go through the history of all the command-lines that you have typed before to either repeat it by pressing enter or to modify it. In the previous case, you can recover the previous command-line and replace the string <code>mostres_analitzades</code> by <code>virus_detectats</code>.</p>
+<p>Please verify using the command <code>ls</code> that the two files are indeed in your current CWD. If you have been successful, you have probably typed twice the <code>cp</code> command. However, because the two filenames extension <code>*.csv</code>, you could have done the job with one single command by using again the wildcard character <code>*</code> as follows</p>
 <pre><code>$ cp /Users/robert/Downloads/*.csv .</code></pre>
 <h1 id="moving-or-renaming-files">Moving or renaming files</h1>
-<p>Because you have <strong>copied</strong> the two files, after the
-copy operation, the files remain intact in their original directory from
-where you have copied them, e.g., in
-<code>/Users/robert/Downloads</code> in the example above. A slightly
-different operation is to <strong>move</strong> the files, because
-<em>moving</em> removes the files from their original location after
-they have been copied into their destination. The command to move the
-files, instead of copy them, is <code>mv</code> with an analogous syntax
-to <code>cp</code>.</p>
-<p>You can also use the moving command <code>mv</code> to rename files.
-For instance, the previously downloaded files have very long filenames,
-which makes them a bit impractical to use them. Since most of the two
-filenames start with the same text, we can rename the first of them to
-<code>mostres_analitzades.csv</code> as follows (assuming the file is
-located in your CWD)</p>
-<pre><code>$ mv Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades.csv mostres_analitzades.csv</code></pre>
-<p>Please rename the second one to <code>virus_detectats.csv</code>.</p>
+<p>Because you have <strong>copied</strong> the two files, after the copy operation, the files remain intact in their original directory from where you have copied them, e.g., in <code>/Users/robert/Downloads</code> in the example above. A slightly different operation is to <strong>move</strong> the files, because <em>moving</em> removes the files from their original location after they have been copied into their destination. The command to move the files, instead of copy them, is <code>mv</code> with an analogous syntax to <code>cp</code>.</p>
+<p>You can also use the moving command <code>mv</code> to rename files. For instance, the previously downloaded files have very long filenames, which makes them a bit impractical to use them. Since most of the two filenames start with the same text, we can rename the first of them to <code>mostres_analitzades.csv</code> as follows (assuming the file is located in your CWD)</p>
+<pre><code>$ mv Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades_YYYYMMDD.csv mostres_analitzades.csv</code></pre>
+<p>where you should replace the characters <code>YYYYMMDD</code> by the year, month and day specified in the filename of the downloaded file.</p>
+<p>Now rename the second file you downloaded to <code>virus_detectats.csv</code>.</p>
 <h1 id="removing-files">Removing files</h1>
-<p>There are two commands to remove files. One is <code>rmdir</code> and
-the other is <code>rm</code>. Check their respective manual pages and
-figure out what is the difference between these two commands by reading
-only the <code>NAME</code> section.</p>
-<p>We are going to illustrate the <code>rm</code> command as follows.
-Because we have copied and renamed the downloaded data files, we can
-remove the files from their original download location, this helps
-releasing space from our hard disk and keeping tidy our downloads
-folder. To remove the first downloaded file, assuming it was downloaded
-in <code>/Users/robert/Downloads</code>, we should type the following
-command</p>
-<pre><code>$ rm ~/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades.csv</code></pre>
-<p>Now remove the second file from the downloads folder and check out
-with the command <code>ls</code> that they indeed have been removed. We
-could have also done this operation in one single command using the
-wildcard character <code>*</code> as follows</p>
+<p>There are two commands to remove files. One is <code>rmdir</code> and the other is <code>rm</code>. Check their respective manual pages and figure out what is the difference between these two commands by reading only the <code>NAME</code> section.</p>
+<p>We are going to illustrate the <code>rm</code> command as follows. Because we have copied and renamed the downloaded data files, we can remove the files from their original download location, this helps releasing space from our hard disk and keeping tidy our downloads folder. To remove the first downloaded file, assuming it was downloaded in <code>/Users/robert/Downloads</code>, we should type the following command</p>
+<pre><code>$ rm ~/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades_YYYYMMDD.csv</code></pre>
+<p>where you should replace the characters <code>YYYYMMDD</code> by the year, month and day specified in the filename of the downloaded file.</p>
+<p>Now remove the second file from the downloads folder and check out with the command <code>ls</code> that they indeed have been removed. We could have also done this operation in one single command using the wildcard character <code>*</code> as follows</p>
 <pre><code>$ rm ~/Downloads/*.csv</code></pre>
-<p>However, beware that this command would have removed
-<strong>all</strong> files with extension <code>.csv</code> located in
-the <code>~/Downloads</code> folder, which would have included the two
-we downloaded and any other file you previously had on that folder with
-identical extension.</p>
-<p><strong>WARNING</strong>: the Unix system has no bin were removed
-files could go before being finally removed by emptying the bin. If you
-accidentatlly remove a file through the <code>rm</code> or the
-<code>rmdir</code> commands, <strong>you cannot recover it</strong>.
-Because of that, you should pay attention when you use the wildcard
-character <code>*</code>, because an unintended space character before
-or after the <code>*</code> could imply <strong>removing all files of
-your CWD or the target folder where you want to remove
-files</strong>.</p>
-<p>At this point, you have typed quite a few Unix commands and probably
-have the terminal window full of text. Now and then you may want to
-clear the terminal window. You can do that by either typing the command
-<code>clear</code> or pressing the key combination
-<code>Ctrl+l</code>.</p>
+<p>However, beware that this command would have removed <strong>all</strong> files with extension <code>.csv</code> located in the <code>~/Downloads</code> folder, which would have included the two we downloaded and any other file you previously had on that folder with identical extension.</p>
+<p><strong>WARNING</strong>: the Unix system has no bin were removed files could go before being finally removed by emptying the bin. If you accidentatlly remove a file through the <code>rm</code> or the <code>rmdir</code> commands, <strong>you cannot recover it</strong>. Because of that, you should pay attention when you use the wildcard character <code>*</code>, because an unintended space character before or after the <code>*</code> could imply <strong>removing all files of your CWD or the target folder where you want to remove files</strong>.</p>
+<p>At this point, you have typed quite a few Unix commands and probably have the terminal window full of text. Now and then you may want to clear the terminal window. You can do that by either typing the command <code>clear</code> or pressing the key combination <code>Ctrl+l</code>.</p>
 <h1 id="exploring-file-contents">Exploring file contents</h1>
-<p>The two SIVIC data files that we have successfully downloaded, copied
-into a folder and renamed have filename extension <code>.csv</code>.
-This gives us two important pieces of information about those two
-files:</p>
+<p>The two SIVIC data files that we have successfully downloaded, copied into a folder and renamed have filename extension <code>.csv</code>. This gives us two important pieces of information about those two files:</p>
 <ol type="1">
-<li>The two files are <a
-href="https://en.wikipedia.org/wiki/Text_file">text files</a>.</li>
-<li>The contents of those two files is in <a
-href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a>
-format.</li>
+<li>The two files are <a href="https://en.wikipedia.org/wiki/Text_file">text files</a>.</li>
+<li>The contents of those two files is in <a href="https://en.wikipedia.org/wiki/Comma-separated_values">CSV</a> format.</li>
 </ol>
-<p>The first point implies that we can inspect the contents of each of
-the files from the command-line using any of the following Unix
-commands</p>
+<p>The first point implies that we can inspect the contents of each of the files from the command-line using any of the following Unix commands</p>
 <ul>
-<li><code>head filename</code>: shows the contents of the beginning of a
-file called <em>filename</em>.</li>
-<li><code>tail filename</code>: shows the contents of the end of a file
-called <em>filename</em>.</li>
-<li><code>cat filename</code>: shows the entire contents of a file
-called <em>filename</em>.</li>
-<li><code>more filename</code>: like <code>cat</code> but paginating the
-output. Use the <code>Enter</code> key to scroll line-by-line, the
-<code>Space</code> key to scroll by pages and the <code>q</code> key to
-quit. Modern Unix systems have also the command
-<code>less filename</code>, which works like <code>more</code> but also
-allows one to scroll the contents backwards using the key
-<code>b</code>.</li>
+<li><code>head filename</code>: shows the contents of the beginning of a file called <em>filename</em>.</li>
+<li><code>tail filename</code>: shows the contents of the end of a file called <em>filename</em>.</li>
+<li><code>cat filename</code>: shows the entire contents of a file called <em>filename</em>.</li>
+<li><code>more filename</code>: like <code>cat</code> but paginating the output. Use the <code>Enter</code> key to scroll line-by-line, the <code>Space</code> key to scroll by pages and the <code>q</code> key to quit. Modern Unix systems have also the command <code>less filename</code>, which works like <code>more</code> but also allows one to scroll the contents backwards using the key <code>b</code>.</li>
 </ul>
-<p>The second point implies that the contents are organized as a table,
-where each line contains a record of the data and each record consists
-of a given number of values separated by some delimiter character,
-typically the comma character <code>,</code> but also the semicolon
-<code>;</code>, sometimes the colon <code>:</code>, sometimes even the
-<a href="https://en.wikipedia.org/wiki/Tab_key#Tab_characters">tab
-whitespace character</a>, etc. In a CSV file, the first line may contain
-column names describing the kind of values stored in the rest of the
-lines at the corresponding place.</p>
-<p>Finally, a very useful command to summarize the contents of a text
-file is <code>wc</code>, which provides the number of lines, words and
-characters in a text file. When multiple files are given, either by
-specifying their names one after each other or by using the wildcard
-character (e.g., <code>*.csv</code>), those statistics are given for
-each file and also their grand totals. Please try the <code>wc</code>
-command on the CSV SIVIC data files.</p>
-<p><strong>WARNING:</strong> All these commands to explore file contents
-may block the shell waiting for content if you forget to specify a
-filename. In such a case, press the combination of keys
-<code>Ctrl+d</code>, which send an <a
-href="https://en.wikipedia.org/wiki/End-of-file">end-of-file (EOF)</a>
-signal to the command and will immediately exit, giving you back the
-control of the shell.</p>
-<h1 id="redirect-terminal-output-to-a-file">Redirect terminal output to
-a file</h1>
-<p>A very useful feature of Unix is <a
-href="https://en.wikipedia.org/wiki/Redirection_%28computing%29">redirection</a>,
-sketched in the following picture</p>
+<p>The second point implies that the contents are organized as a table, where each line contains a record of the data and each record consists of a given number of values separated by some delimiter character, typically the comma character <code>,</code> but also the semicolon <code>;</code>, sometimes the colon <code>:</code>, sometimes even the <a href="https://en.wikipedia.org/wiki/Tab_key#Tab_characters">tab whitespace character</a>, etc. In a CSV file, the first line may contain column names describing the kind of values stored in the rest of the lines at the corresponding place.</p>
+<p>Finally, a very useful command to summarize the contents of a text file is <code>wc</code>, which provides the number of lines, words and characters in a text file. When multiple files are given, either by specifying their names one after each other or by using the wildcard character (e.g., <code>*.csv</code>), those statistics are given for each file and also their grand totals. Please try the <code>wc</code> command on the CSV SIVIC data files.</p>
+<p><strong>WARNING:</strong> All these commands to explore file contents may block the shell waiting for content if you forget to specify a filename. In such a case, press the combination of keys <code>Ctrl+d</code>, which send an <a href="https://en.wikipedia.org/wiki/End-of-file">end-of-file (EOF)</a> signal to the command and will immediately exit, giving you back the control of the shell.</p>
+<h1 id="redirect-terminal-output-to-a-file">Redirect terminal output to a file</h1>
+<p>A very useful feature of Unix is <a href="https://en.wikipedia.org/wiki/Redirection_%28computing%29">redirection</a>, sketched in the following picture</p>
 <p><img src="./terminaloutputredirection.png" /></p>
-<p>Here, we are going to see working example on what it means to
-redirect the terminal output to a file. To redirect the terminal output
-to a file we use the operator <code>&gt;</code> as follows:</p>
+<p>Here, we are going to see working example on what it means to redirect the terminal output to a file. To redirect the terminal output to a file we use the operator <code>&gt;</code> as follows:</p>
 <pre><code>$ command &gt; file</code></pre>
-<p>Here <code>command</code> is some program that generates output to
-the terminal window and <code>file</code> is the name of the file where
-we want this output to be written. For instance, try the following (it
-will only work if you did correctly all the previous commands in this
-practical, otherwise the file <code>mostres_analitzades.csv</code> will
-not be available for this example)</p>
+<p>Here <code>command</code> is some program that generates output to the terminal window and <code>file</code> is the name of the file where we want this output to be written. For instance, try the following (it will only work if you did correctly all the previous commands in this practical, otherwise the file <code>mostres_analitzades.csv</code> will not be available for this example)</p>
 <pre><code>$ head mostres_analitzades.csv &gt; test.txt</code></pre>
-<p>Note that you cannot see anymore the output of the <code>head</code>
-command on the terminal window. However, if you use the commands
-<code>ls</code> and <code>cat test.txt</code>, you should be able to
-identify a new file called <code>test.txt</code> and its contents
-corresponding to the output of the <code>head</code> command.</p>
-<p>Now, using this terminal output redirecting mechanism, create a file
-that contains the number of lines of the two CSV SIVIC data files.</p>
-<p>Using the <code>cat</code> command without a filename and the output
-redirection can also be handy to quickly create a text file with a few
-words. For instance, type the following:</p>
+<p>Note that you cannot see anymore the output of the <code>head</code> command on the terminal window. However, if you use the commands <code>ls</code> and <code>cat test.txt</code>, you should be able to identify a new file called <code>test.txt</code> and its contents corresponding to the output of the <code>head</code> command.</p>
+<p>Now, using this terminal output redirecting mechanism, create a file that contains the number of lines of the two CSV SIVIC data files.</p>
+<p>Using the <code>cat</code> command without a filename and the output redirection can also be handy to quickly create a text file with a few words. For instance, type the following:</p>
 <pre><code>$ cat &gt; test.txt
 Hello world!</code></pre>
-<p>Now press the EOF key combination (<code>Ctrl+d</code>) and verify
-that the previous content of <code>test.txt</code> has dissapeared and
-instead it has now only the words “Hello world!”.</p>
-<p><strong>Tip:</strong> You should note that running twice the terminal
-redirection (<code>&gt;</code>) over the same file, overwrites
-completely the initial contents of the file. To avoid overwritting the
-content of a file, and adding instead the new content at the end, you
-should use <code>&gt;&gt;</code> instead of <code>&gt;</code>.</p>
-<h1 id="create-your-own-github-profile">Create your own GitHub
-profile</h1>
-<p>Go to <a href="https://github.com">https://github.com</a> and create
-your own GitHub profile by entering the following three bits of
-information in the sign up form:</p>
+<p>Now press the EOF key combination (<code>Ctrl+d</code>) and verify that the previous content of <code>test.txt</code> has dissapeared and instead it has now only the words “Hello world!”.</p>
+<p><strong>Tip:</strong> You should note that running twice the terminal redirection (<code>&gt;</code>) over the same file, overwrites completely the initial contents of the file. To avoid overwritting the content of a file, and adding instead the new content at the end, you should use <code>&gt;&gt;</code> instead of <code>&gt;</code>.</p>
+<h1 id="create-your-own-github-profile">Create your own GitHub profile</h1>
+<p>Go to <a href="https://github.com">https://github.com</a> and create your own GitHub profile by entering the following three bits of information in the sign up form:</p>
 <ul>
-<li>Email: enter your student UPF email
-(<code>xxxx.yyyy@estudiant.upf.edu</code>). It is important that you
-enter your student UPF email to enable the connection of your account
-with the GitHub Classroom organisation of FCB.</li>
-<li>Password: enter a password according to the requirements shown in
-the form.</li>
-<li>Username: you can write any word as username as long as it doesn’t
-exist already as a username in GitHub. If you think you may be using
-this account professionally in the future, a popular choice is to write
-the first letter of your first name, followed by your family name.</li>
+<li>Email: enter your student UPF email (<code>xxxx.yyyy@estudiant.upf.edu</code>). It is important that you enter your student UPF email to enable the connection of your account with the GitHub Classroom organisation of FCB.</li>
+<li>Password: enter a password according to the requirements shown in the form.</li>
+<li>Username: you can write any word as username as long as it doesn’t exist already as a username in GitHub. If you think you may be using this account professionally in the future, a popular choice is to write the first letter of your first name, followed by your family name.</li>
 </ul>
-<p>On the next screen, answer the security question, if it appears, and
-press the button <strong>“Join a free plan”</strong>.</p>
+<p>On the next screen, answer the security question, if it appears, and press the button <strong>“Join a free plan”</strong>.</p>
 <p>On the next screen, answer the given questions as follows:</p>
 <ul>
 <li>What kind of work do you do, mainly? <strong>Student</strong></li>
-<li>How much programming experience do you have? <strong>None</strong>
-(probably, but feel free to select another answer)</li>
-<li>What do you plan to use GitHub for? select <strong>School work and
-student projects</strong> at least and feel free to select other
-answers.</li>
+<li>How much programming experience do you have? <strong>None</strong> (probably, but feel free to select another answer)</li>
+<li>What do you plan to use GitHub for? select <strong>School work and student projects</strong> at least and feel free to select other answers.</li>
 </ul>
-<p>Now check out your email, you should find a new one from GitHub where
-they ask you to verify your email address. Follow the given link to do
-this step and your browser should open on your brand new GitHub profile.
-You can now log out by clicking on the icon at the top right corner of
-the GitHub page and select <code>Sign out</code> from the pull down
-menu. <strong>Do not forget your GitHub username and
-password!!!</strong></p>
+<p>Now check out your email, you should find a new one from GitHub where they ask you to verify your email address. Follow the given link to do this step and your browser should open on your brand new GitHub profile. You can now log out by clicking on the icon at the top right corner of the GitHub page and select <code>Sign out</code> from the pull down menu. <strong>Do not forget your GitHub username and password!!!</strong></p>
