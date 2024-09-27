@@ -257,7 +257,7 @@ specified in the filename of the downloaded file.
 Note that the previous command will work regardless of what is your username,
 as long as the sought file is stored in the `Downloads` directory. **Tip:** In
 keyboards with a Spanish layout, the tilde `~` character can be written by
-pressing the keys `AltGr+4` in Windows and Ubuntu, or `Alt+n+space` in MacOS.
+pressing the keys `AltGr+4` in Windows and Ubuntu, or `Alt+ñ+space` in MacOS.
 
 Now copy the second file. **Tip:** when you need to repeat a previous
 command-line or your next command-line resembles pretty much a previous one,
