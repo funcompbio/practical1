@@ -66,8 +66,8 @@ next steps to successfully download them:
 The two files that you have downloaded should have the following names (where
 `YYYYMMDD` refers to the year, month and day in which the data set was updated:
 
-* `Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades_YYYYMMDD.csv`
-* `Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__virus_detectats_YYYYMMDD.csv`
+* `Vigilància_microbiològica_sentinella_a_Atenció_Primària__mostres_analitzades_YYYYMMDD.csv`
+* `Vigilància_microbiològica_sentinella_a_Atenció_Primària__virus_detectats_YYYYMMDD.csv`
 
 Note that these two filenames end with `.csv`. A suffix starting with a dot
 (`.`) at the end of a filename is called its
@@ -80,10 +80,12 @@ instance, a file with extension `.jpg` stores an image in
 `.csv` extension indicates that the downloaded files have contents in the
 so-called [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) format.
 
+<!--
 Think about why the filenames of the CSV files we have downloaded have so many
 underscore characters (`_`). **Tip**: checkout the concluding remarks of the
 lecture on [Unix and the command line](https://funcompbio.github.io/lecture2).
 Could you replace some of the underscore characters by something else?
+-->
 
 # Creating your first directory
 
@@ -223,7 +225,7 @@ then, the command to copy one of these two files to the current CWD **would be**
 chunk to the right to see the entire command)
 
 ```
-$ cp /Users/robert/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades_YYYYMMDD.csv .
+$ cp /Users/robert/Downloads/Vigilància_microbiològica_sentinella_a_Atenció_Primària__mostres_analitzades_YYYYMMDD.csv .
 ```
 where you should replace the characters `YYYYMMDD` by the year, month and day
 specified in the filename of the downloaded file.
@@ -249,7 +251,7 @@ directory of the user, we could use the abbreviation `~`, corresponding to the
 _home_ directory, to write the previous command line as
 
 ```
-$ cp ~/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades_YYYYMMDD.csv .
+$ cp ~/Downloads/Vigilància_microbiològica_sentinella_a_Atenció_Primària__mostres_analitzades_YYYYMMDD.csv .
 ```
 where you should replace the characters `YYYYMMDD` by the year, month and day
 specified in the filename of the downloaded file.
@@ -293,7 +295,7 @@ text, we can rename the first of them to `mostres_analitzades.csv` as follows
 (assuming the file is located in your CWD)
 
 ```
-$ mv Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades_YYYYMMDD.csv mostres_analitzades.csv
+$ mv Vigilància_microbiològica_sentinella_a_Atenció_Primària__mostres_analitzades_YYYYMMDD.csv mostres_analitzades.csv
 ```
 where you should replace the characters `YYYYMMDD` by the year, month and day
 specified in the filename of the downloaded file.
@@ -314,7 +316,7 @@ it was downloaded in `/Users/robert/Downloads`, we should type the following
 command
 
 ```
-$ rm ~/Downloads/Vigil_ncia_microbiol_gica_sentinella_a_Atenci__Prim_ria__mostres_analitzades_YYYYMMDD.csv
+$ rm ~/Downloads/Vigilància_microbiològica_sentinella_a_Atenció_Primària__mostres_analitzades_YYYYMMDD.csv
 ```
 where you should replace the characters `YYYYMMDD` by the year, month and day
 specified in the filename of the downloaded file.
